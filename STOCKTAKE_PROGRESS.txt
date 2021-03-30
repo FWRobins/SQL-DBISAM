@@ -1,0 +1,76 @@
+/*
+get progress for current stock take cycle
+*/
+
+select '001' as BRANCH, 
+count(IF(ONHAND <> 0, 1, NULL)) AS ONHAND,
+count(IF(onhand <> 0 and laststocktake < '2021-01-01' and (created < '2021-01-01' or created = null), 1, null)) as outstanding
+from "C:\IQRetail\IQEnterprise\001\STOCK"
+
+union all
+select '002' as BRANCH, 
+count(IF(ONHAND <> 0, 1, NULL)) AS ONHAND,
+count(IF(onhand <> 0 and laststocktake < '2021-01-01' and (created < '2021-01-01' or created = null), 1, null)) as outstanding
+from "C:\IQRetail\IQEnterprise\002\STOCK"
+
+union all
+select '003' as BRANCH, 
+count(IF(ONHAND <> 0, 1, NULL)) AS ONHAND,
+count(IF(onhand <> 0 and laststocktake < '2021-01-01' and (created < '2021-01-01' or created = null), 1, null)) as outstanding
+from "C:\IQRetail\IQEnterprise\003\STOCK"
+
+union all
+select '004' as BRANCH, 
+count(IF(ONHAND <> 0, 1, NULL)) AS ONHAND,
+count(IF(onhand <> 0 and laststocktake < '2021-01-01' and (created < '2021-01-01' or created = null), 1, null)) as outstanding
+from "C:\IQRetail\IQEnterprise\004\STOCK"
+
+union all
+select '005' as BRANCH, 
+count(IF(ONHAND <> 0, 1, NULL)) AS ONHAND,
+count(IF(onhand <> 0 and laststocktake < '2021-01-01' and (created < '2021-01-01' or created = null), 1, null)) as outstanding
+from "C:\IQRetail\IQEnterprise\005\STOCK"
+
+union all
+select '006' as BRANCH, 
+count(IF(ONHAND <> 0, 1, NULL)) AS ONHAND,
+count(IF(onhand <> 0 and laststocktake < '2021-01-01' and (created < '2021-01-01' or created = null), 1, null)) as outstanding
+from "C:\IQRetail\IQEnterprise\006\STOCK"
+
+union all
+select '007' as BRANCH, 
+count(IF(ONHAND <> 0, 1, NULL)) AS ONHAND,
+count(IF(onhand <> 0 and laststocktake < '2021-01-01' and (created < '2021-01-01' or created = null), 1, null)) as outstanding
+from "C:\IQRetail\IQEnterprise\007\STOCK"
+
+union all
+select '008' as BRANCH, 
+count(IF(ONHAND <> 0, 1, NULL)) AS ONHAND,
+count(IF(onhand <> 0 and laststocktake < '2021-01-01' and (created < '2021-01-01' or created = null), 1, null)) as outstanding
+from "C:\IQRetail\IQEnterprise\008\STOCK"
+
+union all
+select '009' as BRANCH, 
+count(IF(ONHAND <> 0, 1, NULL)) AS ONHAND,
+count(IF(onhand <> 0 and laststocktake < '2021-01-01' and (created < '2021-01-01' or created = null), 1, null)) as outstanding
+from "C:\IQRetail\IQEnterprise\009\STOCK"
+
+union all
+select '010' as BRANCH, 
+count(IF(ONHAND <> 0, 1, NULL)) AS ONHAND,
+count(IF(onhand <> 0 and laststocktake < '2021-01-01' and (created < '2021-01-01' or created = null), 1, null)) as outstanding
+from "C:\IQRetail\IQEnterprise\010\STOCK"
+
+union all
+select 'WAR' as BRANCH, 
+count(IF(ONHAND <> 0, 1, NULL)) AS ONHAND,
+count(IF(onhand <> 0 and laststocktake < '2021-01-01' and (created < '2021-01-01' or created = null), 1, null)) as outstanding
+from "C:\IQRetail\IQEnterprise\WAR\STOCK"
+
+union all
+select 'COM' as BRANCH, 
+count(IF(ONHAND <> 0, 1, NULL)) AS ONHAND,
+count(IF(onhand <> 0 and laststocktake < '2021-01-01' and (created < '2021-01-01' or created = null), 1, null)) as outstanding
+from "C:\IQRetail\IQEnterprise\COM\STOCK"
+
+

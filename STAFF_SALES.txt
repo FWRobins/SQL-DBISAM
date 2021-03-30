@@ -1,0 +1,18 @@
+/*
+get sales from of staff member
+*/
+
+select QUANTITY, DESCRIPT, * from "C:\IQRetail\IQEnterprise\002\STOCtran.dat"
+LEFT JOIN STOCK
+ON STOCTRAN.CODE = STOCK.CODE
+where DEBTOR LIKE 'STAF064'
+
+UNION ALL 
+
+select QUANTITY, DESCRIPT, * from "C:\IQRetail\IQEnterprise\002\STOCHIST.dat"
+LEFT JOIN STOCK
+ON STOCHIST.CODE = STOCK.CODE
+where  DEBTOR LIKE 'STAF064'
+AND TXDATE > '2018-05-22'
+
+ORDER BY CODE

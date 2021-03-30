@@ -1,0 +1,115 @@
+/*
+get stock thats prices were changed for a supplier on a date
+and export each branches list to CSV
+*/
+
+SELECT CODE, DESCRIPT, ONHAND, SELLPINC1
+INTO "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+FROM "C:\IQRetail\IQEnterprise\001\Stock.dat"
+WHERE REGULAR_SU = 'ZEL001'
+AND LASTSYNCDATE > '2020-05-25'
+AND ONHAND > 0;
+
+EXPORT TABLE "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+TO "C:\IQRetail\IQEnterprise\Exports\001.csv"
+WITH HEADERS;
+
+SELECT CODE, DESCRIPT, ONHAND, SELLPINC1
+INTO "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+FROM "C:\IQRetail\IQEnterprise\002\Stock.dat"
+WHERE REGULAR_SU = 'ZEL001'
+AND LASTSYNCDATE > '2020-05-25'
+AND ONHAND > 0;
+
+EXPORT TABLE "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+TO "C:\IQRetail\IQEnterprise\Exports\002.csv"
+WITH HEADERS;
+
+SELECT CODE, DESCRIPT, ONHAND, SELLPINC1
+INTO "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+FROM "C:\IQRetail\IQEnterprise\002\Stock.dat"
+WHERE REGULAR_SU = 'ZEL001'
+AND LASTSYNCDATE > '2020-05-25'
+AND ONHAND > 0;
+
+EXPORT TABLE "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+TO "C:\IQRetail\IQEnterprise\Exports\002.csv"
+WITH HEADERS;
+
+SELECT CODE, DESCRIPT, ONHAND, SELLPINC1
+INTO "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+FROM "C:\IQRetail\IQEnterprise\003\Stock.dat"
+WHERE REGULAR_SU = 'ZEL001'
+AND LASTSYNCDATE > '2020-05-25'
+AND ONHAND > 0;
+
+EXPORT TABLE "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+TO "C:\IQRetail\IQEnterprise\Exports\003.csv"
+WITH HEADERS;
+
+SELECT CODE, DESCRIPT, ONHAND, SELLPINC1
+INTO "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+FROM "C:\IQRetail\IQEnterprise\004\Stock.dat"
+WHERE REGULAR_SU = 'ZEL001'
+AND LASTSYNCDATE > '2020-05-25'
+AND ONHAND > 0;
+
+EXPORT TABLE "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+TO "C:\IQRetail\IQEnterprise\Exports\004.csv"
+WITH HEADERS;
+
+SELECT CODE, DESCRIPT, ONHAND, SELLPINC1
+INTO "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+FROM "C:\IQRetail\IQEnterprise\005\Stock.dat"
+WHERE REGULAR_SU = 'ZEL001'
+AND LASTSYNCDATE > '2020-05-25'
+AND ONHAND > 0;
+
+EXPORT TABLE "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+TO "C:\IQRetail\IQEnterprise\Exports\005.csv"
+WITH HEADERS;
+
+SELECT CODE, DESCRIPT, ONHAND, SELLPINC1
+INTO "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+FROM "C:\IQRetail\IQEnterprise\006\Stock.dat"
+WHERE REGULAR_SU = 'ZEL001'
+AND LASTSYNCDATE > '2020-05-25'
+AND ONHAND > 0;
+
+EXPORT TABLE "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+TO "C:\IQRetail\IQEnterprise\Exports\006.csv"
+WITH HEADERS;
+
+SELECT CODE, DESCRIPT, ONHAND, SELLPINC1
+INTO "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+FROM "C:\IQRetail\IQEnterprise\007\Stock.dat"
+WHERE REGULAR_SU = 'ZEL001'
+AND LASTSYNCDATE > '2020-05-25'
+AND ONHAND > 0;
+
+EXPORT TABLE "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+TO "C:\IQRetail\IQEnterprise\Exports\007.csv"
+WITH HEADERS;
+
+SELECT CODE, DESCRIPT, ONHAND, SELLPINC1
+INTO "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+FROM "C:\IQRetail\IQEnterprise\009\Stock.dat"
+WHERE REGULAR_SU = 'ZEL001'
+AND LASTSYNCDATE > '2020-05-25'
+AND ONHAND > 0;
+
+EXPORT TABLE "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+TO "C:\IQRetail\IQEnterprise\Exports\009.csv"
+WITH HEADERS;
+
+SELECT CODE, DESCRIPT, ONHAND, SELLPINC1
+INTO "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+FROM "C:\IQRetail\IQEnterprise\010\Stock.dat"
+WHERE REGULAR_SU = 'ZEL001'
+AND LASTSYNCDATE > '2020-05-25'
+AND ONHAND > 0;
+
+EXPORT TABLE "C:\IQRetail\IQEnterprise\Exports\FWRTABLE"
+TO "C:\IQRetail\IQEnterprise\Exports\010.csv"
+WITH HEADERS;
+

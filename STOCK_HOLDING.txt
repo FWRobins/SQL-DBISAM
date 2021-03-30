@@ -1,0 +1,85 @@
+/*
+get stock holding for all branches for export
+*/
+
+select '000' as "Branch", sum(avrgcost*onhand), department from "C:\IQRetail\IQEnterprise\000\Stock.dat"
+where onhand > 0
+group by department
+
+union all
+
+select 'Strand' as "Branch", sum(avrgcost*onhand), department from "C:\IQRetail\IQEnterprise\001\Stock.dat"
+where onhand > 0
+group by department
+
+union all
+
+select 'Colours' as "Branch", sum(avrgcost*onhand), department from "C:\IQRetail\IQEnterprise\002\Stock.dat"
+where onhand > 0
+group by department
+
+union all
+
+select 'Swes' as "Branch", sum(avrgcost*onhand), department from "C:\IQRetail\IQEnterprise\003\Stock.dat"
+where onhand > 0
+group by department
+
+union all
+
+select 'Eikestad' as "Branch", sum(avrgcost*onhand), department from "C:\IQRetail\IQEnterprise\004\Stock.dat"
+where onhand > 0
+group by department
+
+union all
+
+select 'StelSquare' as "Branch", sum(avrgcost*onhand), department from "C:\IQRetail\IQEnterprise\005\Stock.dat"
+where onhand > 0
+group by department
+
+union all
+
+select 'Sanctuary' as "Branch", sum(avrgcost*onhand), department from "C:\IQRetail\IQEnterprise\006\Stock.dat"
+where onhand > 0
+group by department
+
+union all
+
+select 'WhaleCoast' as "Branch", sum(avrgcost*onhand), department from "C:\IQRetail\IQEnterprise\007\Stock.dat"
+where onhand > 0
+group by department
+
+union all
+
+select 'Hermanus' as "Branch", sum(avrgcost*onhand), department from "C:\IQRetail\IQEnterprise\008\Stock.dat"
+where onhand > 0
+group by department
+
+union all
+
+select 'GBay' as "Branch", sum(avrgcost*onhand), department from "C:\IQRetail\IQEnterprise\009\Stock.dat"
+where onhand > 0
+group by department
+
+union all
+
+select 'Sdam' as "Branch", sum(avrgcost*onhand), department from "C:\IQRetail\IQEnterprise\010\Stock.dat"
+where onhand > 0
+group by department
+
+union all
+
+select '888' as "Branch", sum(avrgcost*onhand), department from "C:\IQRetail\IQEnterprise\WAR\Stock.dat"
+where onhand > 0
+group by department
+
+union all
+
+select 'COM' as "Branch", sum(avrgcost*onhand), department from "C:\IQRetail\IQEnterprise\COM\Stock.dat"
+where onhand > 0
+group by department
+
+union all
+
+select 'BTS' as "Branch", sum(avrgcost*onhand), department from "C:\IQRetail\IQEnterprise\BTS\Stock.dat"
+where onhand > 0
+group by department

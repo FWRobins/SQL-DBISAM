@@ -1,0 +1,82 @@
+/*
+update user email in all branches
+*/
+
+update "C:\IQRetail\IQEnterprise\001\MapInt"
+set value = 34
+where user = 24
+and name like 'EmailAccount'
+COMMIT INTERVAL 5;
+
+update "C:\IQRetail\IQEnterprise\002\MapInt"
+set value = 34
+where user = 24
+and name like 'EmailAccount'
+COMMIT INTERVAL 5;
+
+update "C:\IQRetail\IQEnterprise\003\MapInt"
+set value = 34
+where user = 24
+and name like 'EmailAccount'
+COMMIT INTERVAL 5;
+
+update "C:\IQRetail\IQEnterprise\004\MapInt"
+set value = 34
+where user = 24
+and name like 'EmailAccount'
+COMMIT INTERVAL 5;
+
+update "C:\IQRetail\IQEnterprise\005\MapInt"
+set value = 34
+where user = 24
+and name like 'EmailAccount'
+COMMIT INTERVAL 5;
+
+update "C:\IQRetail\IQEnterprise\006\MapInt"
+set value = 34
+where user = 24
+and name like 'EmailAccount'
+COMMIT INTERVAL 5;
+
+update "C:\IQRetail\IQEnterprise\007\MapInt"
+set value = 34
+where user = 24
+and name like 'EmailAccount'
+COMMIT INTERVAL 5;
+
+update "C:\IQRetail\IQEnterprise\008\MapInt"
+set value = 34
+where user = 24
+and name like 'EmailAccount'
+COMMIT INTERVAL 5;
+
+
+update "C:\IQRetail\IQEnterprise\009\MapInt"
+set value = 34
+where user = 24
+and name like 'EmailAccount'
+COMMIT INTERVAL 5;
+
+update "C:\IQRetail\IQEnterprise\010\MapInt"
+set value = 34
+where user = 24
+and name like 'EmailAccount'
+COMMIT INTERVAL 5;
+
+update "C:\IQRetail\IQEnterprise\BTS\MapInt"
+set value = 34
+where user = 24
+and name like 'EmailAccount'
+COMMIT INTERVAL 5;
+
+update "C:\IQRetail\IQEnterprise\COM\MapInt"
+set value = 34
+where user = 24
+and name like 'EmailAccount'
+COMMIT INTERVAL 5;
+
+update "C:\IQRetail\IQEnterprise\WAR\MapInt"
+set value = 34
+where user = 24
+and name like 'EmailAccount'
+COMMIT INTERVAL 5;

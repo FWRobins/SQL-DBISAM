@@ -1,0 +1,68 @@
+/*
+had to design a querie for foot counter suppliers to import data to their system for BI purposes
+*/
+
+
+SELECT 
+stoctran.REFERENCE,
+stoctran.BRANCH, 
+stoctran.TILLNUM,
+stoctran.USER,
+stoctran.CREATED,
+IF(stoctran.DC = 'C', 'SALE', 'RETURN') AS TransactionType,
+ 
+* FROM sales
+
+
+left outer join stoctran 
+on (sales.salenum = stoctran.salenum
+and sales.tillnum = stoctran.tillnum)
+
+
+where sales.CREATED > CURRENT_TIMESTAMP-(8*60*60*1000)
+
+#####################
+
+
+select 
+salenum as ReceiptNumber, 
+'010' as StoreID,
+TILL as WorkstationID,
+concat(CONCAT(CAST(CASHIER AS varchar(3)) , ' '), CAST(CASHIERNM AS varchar(20))) AS OperatorIDs,
+concat(CONCAT(CAST(date AS varchar(10)) , ' '), CAST(time AS varchar(8))) AS ReceiptDateTime,
+if(maintype = 'CS' OR MAINTYPE = 'ACCP', 'SALES', 'RETURN') AS TransactionType,
+if(voided = True, 'Void', 'Finish') as TransactionStatus,
+round(amount/115*100, 2) as LineItemsTotal,
+AMOUNT as TransactionTotal,
+round(AMOUNT/115*15, 2) as TaxAmount,
+concat(CONCAT(CAST(CASHIER AS varchar(3)) , ' '), CAST(CASHIERNM AS varchar(20))) AS SalesAssociateID,
+'ZAR' AS CurrencyCode
+from till27
+where time > (current_time-(8*60*60*1000))
+AND SUBTYPE = 'TOTAL'
+
+union all
+
+select 
+salenum as ReceiptNumber, 
+'010' as StoreID,
+TILL as WorkstationID,
+concat(CONCAT(CAST(CASHIER AS varchar(3)) , ' '), CAST(CASHIERNM AS varchar(20))) AS OperatorIDs,
+concat(CONCAT(CAST(date AS varchar(10)) , ' '), CAST(time AS varchar(8))) AS ReceiptDateTime,
+if(maintype = 'CS' OR MAINTYPE = 'ACCP', 'SALES', 'RETURN') AS TransactionType,
+if(voided = True, 'Void', 'Finish') as TransactionStatus,
+round(amount/115*100, 2) as LineItemsTotal,
+AMOUNT as TransactionTotal,
+round(AMOUNT/115*15, 2) as TaxAmount,
+concat(CONCAT(CAST(CASHIER AS varchar(3)) , ' '), CAST(CASHIERNM AS varchar(20))) AS SalesAssociateID,
+'ZAR' AS CurrencyCode
+from till28
+where time > (current_time-(8*60*60*1000))
+AND SUBTYPE = 'TOTAL'
+
+order by ReceiptDateTime
+
+
+
+
+

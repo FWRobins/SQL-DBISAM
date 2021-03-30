@@ -1,0 +1,71 @@
+/*
+get count of stock codes in negative onhand values
+*/
+
+select '001' as branch, count(code), * 
+from "C:\IQRetail\IQEnterprise\001\Stock.dat"
+where onhand < 0
+group by vatrate
+
+union all
+
+select '002' as branch, count(code), * 
+from "C:\IQRetail\IQEnterprise\002\Stock.dat"
+where onhand < 0
+group by vatrate
+
+union all
+
+select '003' as branch, count(code), * 
+from "C:\IQRetail\IQEnterprise\003\Stock.dat"
+where onhand < 0
+group by vatrate
+
+union all
+
+select '004' as branch, count(code), * 
+from "C:\IQRetail\IQEnterprise\004\Stock.dat"
+where onhand < 0
+group by vatrate
+
+union all
+
+select '005' as branch, count(code), * 
+from "C:\IQRetail\IQEnterprise\005\Stock.dat"
+where onhand < 0
+group by vatrate
+
+union all
+
+select '006' as branch, count(code), * 
+from "C:\IQRetail\IQEnterprise\006\Stock.dat"
+where onhand < 0
+group by vatrate
+
+union all
+
+select '007' as branch, count(code), * 
+from "C:\IQRetail\IQEnterprise\007\Stock.dat"
+where onhand < 0
+group by vatrate
+
+union all
+
+select '008' as branch, count(code), * 
+from "C:\IQRetail\IQEnterprise\008\Stock.dat"
+where onhand < 0
+group by vatrate
+
+union all
+
+select '009' as branch, count(code), * 
+from "C:\IQRetail\IQEnterprise\009\Stock.dat"
+where onhand < 0
+group by vatrate
+
+union all
+
+select '010' as branch, count(code), * 
+from "C:\IQRetail\IQEnterprise\010\Stock.dat"
+where onhand < 0
+group by vatrate

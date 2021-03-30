@@ -1,0 +1,8 @@
+/*
+get list of closed staff accounts ordered by date last used
+*/
+
+select datelastdebit, * from debtors
+where name like '%CLOSED%'
+AND account like 'STAF%'
+order by datelastdebit

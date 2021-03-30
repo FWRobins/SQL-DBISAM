@@ -1,0 +1,102 @@
+/*
+get list of interbranch transfer that have not been completed and 
+also match with transfers that appeared in previous list
+*/
+
+select  2 as "counter", *
+into "\Memory\startdateqry.dat"    
+from ((tillhist
+
+LEFT JOIN PROMOITEMS
+ON TILLHIST.PLUCODE = PROMOITEMS.CODE)
+LEFT JOIN PROMODETAILS
+ON PROMOITEMS.BATCH = PROMODETAILS.BATCH)
+
+
+where ( date = '2020-08-24' )  
+and plucode <> null
+and NOT (singlepr-listpric) BETWEEN -0.03 AND 0.03
+and voided = False
+and itemvoid = False
+and maintype <> 'CSR'
+and maintype <> 'ACCR'
+and debtor = null
+and quantity >= 1
+and (cast(singlepr as char(10)) like '%.99%'
+OR cast(singlepr as char(10)) like '%.5%')          
+and cast(singlepr as char(10)) like '%.%'
+and promobatch = 0
+and not pludes like '## %'
+and not pludes like '** %'
+and not (active = True and qqty = null)                                                      
+group by plucode;
+
+select  0 as "counter", *
+into "\Memory\enddateqry.dat"    
+from ((tillhist
+
+LEFT JOIN PROMOITEMS
+ON TILLHIST.PLUCODE = PROMOITEMS.CODE)
+LEFT JOIN PROMODETAILS
+ON PROMOITEMS.BATCH = PROMODETAILS.BATCH)
+
+
+where ( date = '2020-08-27' )  
+and plucode <> null
+and NOT (singlepr-listpric) BETWEEN -0.03 AND 0.03
+and voided = False
+and itemvoid = False
+and maintype <> 'CSR'
+and maintype <> 'ACCR'
+and debtor = null
+and quantity >= 1
+and (cast(singlepr as char(10)) like '%.99%'
+OR cast(singlepr as char(10)) like '%.5%')          
+and cast(singlepr as char(10)) like '%.%'
+and promobatch = 0
+and not pludes like '## %'
+and not pludes like '** %'
+and not (active = True and qqty = null)                                                      
+group by plucode;
+
+insert into "\Memory\enddateqry.dat" 
+select *
+ from "\Memory\startdateqry.dat" ;
+
+select sum(counter) as sumcounter,* from "\Memory\enddateqry.dat" 
+group by plucode;
+
+
+<POverrides."DATE"> = <Date>-4
+
+SELECT  0 as "counter", * 
+INTO "\Memory\newtransfers.dat" 
+FROM STOCKTRANSFERMASTER
+
+WHERE
+(IN_DOCUMENT = NULL) AND (IN_BRANCH LIKE '001') 
+    AND (OUT_DATE < current_date-4) 
+    AND (OUT_TOTAL > 0) 
+    AND (OUT_BRANCH NOT LIKE '888') 
+    AND ((OUT_BRANCH NOT LIKE '007') OR (OUT_DATE < current_date-10)) 
+    AND ((OUT_BRANCH NOT LIKE '010') OR (OUT_DATE < current_date-10)) 
+    AND NOT ORDERNUMBER LIKE '%XMAS%';
+
+SELECT  1 as "counter", * 
+INTO "\Memory\oldtransfers.dat" 
+FROM STOCKTRANSFERMASTER
+
+WHERE
+(IN_DOCUMENT = NULL) AND (IN_BRANCH LIKE '001') 
+    AND (OUT_DATE < current_date-11) 
+    AND (OUT_TOTAL > 0) 
+    AND (OUT_BRANCH NOT LIKE '888') 
+    AND ((OUT_BRANCH NOT LIKE '007') OR (OUT_DATE < current_date-17)) 
+    AND ((OUT_BRANCH NOT LIKE '010') OR (OUT_DATE < current_date-17)) 
+    AND NOT ORDERNUMBER LIKE '%XMAS%';
+
+insert into "\Memory\newtransfers.dat" 
+select *
+ from "\Memory\oldtransfers.dat" ;
+
+select * from "\Memory\newtransfers.dat" ;

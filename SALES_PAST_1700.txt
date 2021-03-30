@@ -1,0 +1,43 @@
+/*
+get all sales part 17:00 to check if branches should close eairlier
+*/
+
+SELECT '003' as branch, TIME, date, count(date), sum(amount),* FROM "C:\IQRetail\IQEnterprise\003\TillHist.dat"
+WHERE DATE > '2020-03-19'
+AND TIME > '17:00:00'
+and maintype = 'CS'
+and voided = False
+and subtype = 'TOTAL'
+group by date
+
+union all
+
+SELECT '004' as branch, TIME, date, count(date), sum(amount),* FROM "C:\IQRetail\IQEnterprise\004\TillHist.dat"
+WHERE DATE > '2020-03-19'
+AND TIME > '17:00:00'
+and maintype = 'CS'
+and voided = False
+and subtype = 'TOTAL'
+group by date
+
+union all
+
+SELECT '006' as branch, TIME, date, count(date), sum(amount),* FROM "C:\IQRetail\IQEnterprise\006\TillHist.dat"
+WHERE DATE > '2020-03-19'
+AND TIME > '17:00:00'
+and maintype = 'CS'
+and voided = False
+and subtype = 'TOTAL'
+group by date
+
+union all
+
+SELECT '009' as branch, TIME, date, count(date), sum(amount),* FROM "C:\IQRetail\IQEnterprise\009\TillHist.dat"
+WHERE DATE > '2020-03-19'
+AND TIME > '17:00:00'
+and maintype = 'CS'
+and voided = False
+and subtype = 'TOTAL'
+group by date
+
+order by branch

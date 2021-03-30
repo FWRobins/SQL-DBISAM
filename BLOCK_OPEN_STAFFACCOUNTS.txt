@@ -1,0 +1,25 @@
+/*
+set staff accounts onhold for paayroll run
+*/
+
+BLOCK DEBTORS:
+UPDATE debtors
+SET ONHOLDTYPE = 12583395
+WHERE (ACCOUNT LIKE 'STAF%') 
+AND (ALTERNATIVE_NAME <> NULL) 
+AND (NAME NOT LIKE '%CASUAL%') 
+AND (CRLIMIT <> 1)
+
+/*
+open staff account after payroll run
+*/
+
+OPEN DEBTORS:
+UPDATE debtors
+SET ONHOLDTYPE = 0
+WHERE (ACCOUNT LIKE 'STAF%') 
+AND (TOTAL = 0) 
+AND (ALTERNATIVE_NAME <> NULL) 
+AND (NAME NOT LIKE '%CASUAL%') 
+AND (CRLIMIT <> 1) 
+AND (NAME NOT LIKE '%CLOSED%')

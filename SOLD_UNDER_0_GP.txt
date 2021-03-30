@@ -1,0 +1,250 @@
+/*
+get stock that sold under cost for all branches
+*/
+
+select '001' as BRANCH, till, 
+salenum, 
+plucode, 
+pludes, 
+singlepr, 
+amount, quantity, 
+listpric, 
+cost, cost/quantity as unitcost, 
+((amount/115*100/cost)-1)*100 as profit, 
+department, 
+ONHAND
+
+from "C:\IQRetail\IQEnterprise\001\TILLHIST"
+
+left join "C:\IQRetail\IQEnterprise\001\Stock.dat" on tillhist.plucode = stock.code
+
+where date = current_date -1 
+and itemvoid = False
+and voided = False
+and amount > 0 
+and cost>amount/115*100 
+and vatrate=1 
+AND ONHAND > 0
+and not linecolourtype = 8
+and not linecolourtype = 9
+and not department = '1500' 
+and not pludes like '%DIARY%'
+and not pludes like'** %'
+
+UNION ALL
+
+
+select '002' as BRANCH, till, 
+salenum, 
+plucode, 
+pludes, 
+singlepr, 
+amount, quantity, 
+listpric, 
+cost, cost/quantity as unitcost, 
+((amount/115*100/cost)-1)*100 as profit, 
+department, 
+ONHAND
+
+from "C:\IQRetail\IQEnterprise\002\TILLHIST"
+
+left join "C:\IQRetail\IQEnterprise\002\Stock.dat" on tillhist.plucode = stock.code
+
+where date = current_date -1 
+and itemvoid = False
+and voided = False
+and amount > 0 
+and cost>amount/115*100 
+and vatrate=1 
+AND ONHAND > 0
+and not linecolourtype = 8
+and not linecolourtype = 9
+and not department = '1500' 
+and not pludes like '%DIARY%'
+and not pludes like'** %'
+
+UNION ALL
+
+select '003' as BRANCH, till, 
+salenum, 
+plucode, 
+pludes, 
+singlepr, 
+amount, quantity, 
+listpric, 
+cost, cost/quantity as unitcost, 
+((amount/115*100/cost)-1)*100 as profit, 
+department, 
+ONHAND
+
+from "C:\IQRetail\IQEnterprise\003\TILLHIST"
+
+left join "C:\IQRetail\IQEnterprise\003\Stock.dat" on tillhist.plucode = stock.code
+
+where date = current_date -1 
+and itemvoid = False
+and voided = False
+and amount > 0 
+and cost>amount/115*100 
+and vatrate=1 
+AND ONHAND > 0
+and not linecolourtype = 8
+and not linecolourtype = 9
+and not department = '1500' 
+and not pludes like '%DIARY%'
+and not pludes like'** %'
+
+UNION ALL
+
+select '004' as BRANCH, till, 
+salenum, 
+plucode, 
+pludes, 
+singlepr, 
+amount, quantity, 
+listpric, 
+cost, cost/quantity as unitcost, 
+((amount/115*100/cost)-1)*100 as profit, 
+department, 
+ONHAND
+
+from "C:\IQRetail\IQEnterprise\004\TILLHIST"
+
+left join "C:\IQRetail\IQEnterprise\004\Stock.dat" on tillhist.plucode = stock.code
+
+where date = current_date -1 
+and itemvoid = False
+and voided = False
+and amount > 0 
+and cost>amount/115*100 
+and vatrate=1 
+AND ONHAND > 0
+and not linecolourtype = 8
+and not linecolourtype = 9
+and not department = '1500' 
+and not pludes like '%DIARY%'
+and not pludes like'** %'
+
+UNION ALL
+
+select '006' as BRANCH, till, 
+salenum, 
+plucode, 
+pludes, 
+singlepr, 
+amount, quantity, 
+listpric, 
+cost, cost/quantity as unitcost, 
+((amount/115*100/cost)-1)*100 as profit, 
+department, 
+ONHAND
+
+from "C:\IQRetail\IQEnterprise\006\TILLHIST"
+
+left join "C:\IQRetail\IQEnterprise\006\Stock.dat" on tillhist.plucode = stock.code
+
+where date = current_date -1 
+and itemvoid = False
+and voided = False
+and amount > 0 
+and cost>amount/115*100 
+and vatrate=1 
+AND ONHAND > 0
+and not linecolourtype = 8
+and not linecolourtype = 9
+and not department = '1500' 
+and not pludes like '%DIARY%'
+and not pludes like'** %'
+
+UNION ALL
+
+select '007' as BRANCH, till, 
+salenum, 
+plucode, 
+pludes, 
+singlepr, 
+amount, quantity, 
+listpric, 
+cost, cost/quantity as unitcost, 
+((amount/115*100/cost)-1)*100 as profit, 
+department, 
+ONHAND
+
+from "C:\IQRetail\IQEnterprise\007\TILLHIST"
+
+left join "C:\IQRetail\IQEnterprise\007\Stock.dat" on tillhist.plucode = stock.code
+
+where date = current_date -1 
+and itemvoid = False
+and voided = False
+and amount > 0 
+and cost>amount/115*100 
+and vatrate=1 
+AND ONHAND > 0
+and not linecolourtype = 8
+and not linecolourtype = 9
+and not department = '1500' 
+and not pludes like '%DIARY%'
+and not pludes like'** %'
+
+UNION ALL
+
+select '009' as BRANCH, till, 
+salenum, 
+plucode, 
+pludes, 
+singlepr, 
+amount, quantity, 
+listpric, 
+cost, cost/quantity as unitcost, 
+((amount/115*100/cost)-1)*100 as profit, 
+department, 
+ONHAND
+
+from "C:\IQRetail\IQEnterprise\009\TILLHIST"
+
+left join "C:\IQRetail\IQEnterprise\009\Stock.dat" on tillhist.plucode = stock.code
+
+where date = current_date -1 
+and itemvoid = False
+and voided = False
+and amount > 0 
+and cost>amount/115*100 
+and vatrate=1 
+AND ONHAND > 0
+and not linecolourtype = 8
+and not linecolourtype = 9
+and not department = '1500' 
+and not pludes like '%DIARY%'
+and not pludes like'** %'
+
+UNION ALL
+
+select '010' as BRANCH, till, 
+salenum, 
+plucode, 
+pludes, 
+singlepr, 
+amount, quantity, 
+listpric, 
+cost, cost/quantity as unitcost, 
+((amount/115*100/cost)-1)*100 as profit, 
+department, 
+ONHAND
+
+from "C:\IQRetail\IQEnterprise\010\TILLHIST"
+
+left join "C:\IQRetail\IQEnterprise\010\Stock.dat" on tillhist.plucode = stock.code
+
+where date = current_date -1 
+and itemvoid = False
+and voided = False
+and amount > 0 
+and cost>amount/115*100 
+and vatrate=1 
+AND ONHAND > 0
+and not linecolourtype = 8
+and not linecolourtype = 9
+and not department = '1500' 
+and not pludes like '%DIARY%'
+and not pludes like'** %'

@@ -1,0 +1,70 @@
+/*
+get list of stock thats prices were overriden at till point and
+also match to see if the same code were on the list 3 days ago
+*/
+
+select  2 as "counter", *
+into "\Memory\startdateqry.dat"    
+from ((tillhist
+
+LEFT JOIN PROMOITEMS
+ON TILLHIST.PLUCODE = PROMOITEMS.CODE)
+LEFT JOIN PROMODETAILS
+ON PROMOITEMS.BATCH = PROMODETAILS.BATCH)
+
+
+where ( date = '2020-08-24' )  
+and plucode <> null
+and NOT (singlepr-listpric) BETWEEN -0.03 AND 0.03
+and voided = False
+and itemvoid = False
+and maintype <> 'CSR'
+and maintype <> 'ACCR'
+and debtor = null
+and quantity >= 1
+and (cast(singlepr as char(10)) like '%.99%'
+OR cast(singlepr as char(10)) like '%.5%')          
+and cast(singlepr as char(10)) like '%.%'
+and promobatch = 0
+and not pludes like '## %'
+and not pludes like '** %'
+and not (active = True and qqty = null)                                                      
+group by plucode;
+
+select  0 as "counter", *
+into "\Memory\enddateqry.dat"    
+from ((tillhist
+
+LEFT JOIN PROMOITEMS
+ON TILLHIST.PLUCODE = PROMOITEMS.CODE)
+LEFT JOIN PROMODETAILS
+ON PROMOITEMS.BATCH = PROMODETAILS.BATCH)
+
+
+where ( date = '2020-08-27' )  
+and plucode <> null
+and NOT (singlepr-listpric) BETWEEN -0.03 AND 0.03
+and voided = False
+and itemvoid = False
+and maintype <> 'CSR'
+and maintype <> 'ACCR'
+and debtor = null
+and quantity >= 1
+and (cast(singlepr as char(10)) like '%.99%'
+OR cast(singlepr as char(10)) like '%.5%')          
+and cast(singlepr as char(10)) like '%.%'
+and promobatch = 0
+and not pludes like '## %'
+and not pludes like '** %'
+and not (active = True and qqty = null)                                                      
+group by plucode;
+
+insert into "\Memory\enddateqry.dat" 
+select *
+ from "\Memory\startdateqry.dat" ;
+
+select sum(counter) as sumcounter,* from "\Memory\enddateqry.dat" 
+group by plucode;
+
+
+<POverrides."DATE"> = <Date>-4

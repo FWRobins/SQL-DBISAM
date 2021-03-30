@@ -1,0 +1,57 @@
+/*
+get net sales for the current date from all branches
+*/
+
+(select '001', txdate, sum(if( tcode = 'IN', AMOUNT, AMOUNT*-1))Sales
+from "C:\IQRetail\IQEnterprise\001\STOCTRAN"
+where tcode in('IN', 'CN') and txdate = current_date
+group by txdate)
+
+union all
+
+(select '002', txdate, sum(if( tcode = 'IN', AMOUNT, AMOUNT*-1))Sales
+from "C:\IQRetail\IQEnterprise\002\STOCTRAN"
+where tcode in('IN', 'CN') and txdate = current_date
+group by txdate)
+
+union all
+
+(select '003', txdate, sum(if( tcode = 'IN', AMOUNT, AMOUNT*-1))Sales
+from "C:\IQRetail\IQEnterprise\003\STOCTRAN"
+where tcode in('IN', 'CN') and txdate = current_date
+group by txdate)
+
+union all
+
+(select '004', txdate, sum(if( tcode = 'IN', AMOUNT, AMOUNT*-1))Sales
+from "C:\IQRetail\IQEnterprise\004\STOCTRAN"
+where tcode in('IN', 'CN') and txdate = current_date
+group by txdate)
+
+union all
+
+(select '005', txdate, sum(if( tcode = 'IN', AMOUNT, AMOUNT*-1))Sales
+from "C:\IQRetail\IQEnterprise\005\STOCTRAN"
+where tcode in('IN', 'CN') and txdate = current_date
+group by txdate)
+
+union all
+
+(select '006', txdate, sum(if( tcode = 'IN', AMOUNT, AMOUNT*-1))Sales
+from "C:\IQRetail\IQEnterprise\006\STOCTRAN"
+where tcode in('IN', 'CN') and txdate = current_date
+group by txdate)
+
+union all
+
+(select '007', txdate, sum(if( tcode = 'IN', AMOUNT, AMOUNT*-1))Sales
+from "C:\IQRetail\IQEnterprise\007\STOCTRAN"
+where tcode in('IN', 'CN') and txdate = current_date
+group by txdate)
+
+union all
+
+(select '009', txdate, sum(if( tcode = 'IN', AMOUNT, AMOUNT*-1))Sales
+from "C:\IQRetail\IQEnterprise\009\STOCTRAN"
+where tcode in('IN', 'CN') and txdate = current_date
+group by txdate)

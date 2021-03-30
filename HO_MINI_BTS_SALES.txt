@@ -1,0 +1,326 @@
+/*
+Head office needed stock sales data for all branches
+*/
+
+select 
+stoctran.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\001\Stoctran.dat"
+left join "C:\IQRetail\IQEnterprise\001\Stock.dat"
+on stoctran.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stochist.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\001\StocHist.dat"
+left join "C:\IQRetail\IQEnterprise\001\Stock.dat"
+on stochist.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stoctran.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\002\Stoctran.dat"
+left join "C:\IQRetail\IQEnterprise\002\Stock.dat"
+on stoctran.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stochist.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\002\StocHist.dat"
+left join "C:\IQRetail\IQEnterprise\002\Stock.dat"
+on stochist.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stoctran.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\003\Stoctran.dat"
+left join "C:\IQRetail\IQEnterprise\003\Stock.dat"
+on stoctran.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stochist.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\003\StocHist.dat"
+left join "C:\IQRetail\IQEnterprise\003\Stock.dat"
+on stochist.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stoctran.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\004\Stoctran.dat"
+left join "C:\IQRetail\IQEnterprise\004\Stock.dat"
+on stoctran.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stochist.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\004\StocHist.dat"
+left join "C:\IQRetail\IQEnterprise\004\Stock.dat"
+on stochist.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stoctran.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\005\Stoctran.dat"
+left join "C:\IQRetail\IQEnterprise\005\Stock.dat"
+on stoctran.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stochist.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\005\StocHist.dat"
+left join "C:\IQRetail\IQEnterprise\005\Stock.dat"
+on stochist.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stoctran.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\006\Stoctran.dat"
+left join "C:\IQRetail\IQEnterprise\006\Stock.dat"
+on stoctran.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stochist.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\006\StocHist.dat"
+left join "C:\IQRetail\IQEnterprise\006\Stock.dat"
+on stochist.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stoctran.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\007\Stoctran.dat"
+left join "C:\IQRetail\IQEnterprise\007\Stock.dat"
+on stoctran.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stochist.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\007\StocHist.dat"
+left join "C:\IQRetail\IQEnterprise\007\Stock.dat"
+on stochist.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stoctran.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\009\Stoctran.dat"
+left join "C:\IQRetail\IQEnterprise\009\Stock.dat"
+on stoctran.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stochist.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\009\StocHist.dat"
+left join "C:\IQRetail\IQEnterprise\009\Stock.dat"
+on stochist.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stoctran.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\010\Stoctran.dat"
+left join "C:\IQRetail\IQEnterprise\010\Stock.dat"
+on stoctran.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+
+union all
+
+select 
+stochist.code, 
+stock.barcode, 
+stock.descript, 
+stock.regular_su, 
+CREDITRS.name,
+sum(if(TCODE like 'CN', quantity*-1, quantity*1)) as qtysold
+from "C:\IQRetail\IQEnterprise\010\StocHist.dat"
+left join "C:\IQRetail\IQEnterprise\010\Stock.dat"
+on stochist.code = stock.code
+left join "C:\IQRetail\IQEnterprise\000\CREDITRS.dat"
+on stock.regular_su = CREDITRS.account
+where tcode in ('IN', 'CN')
+and txdate between '2019-06-24' and '2019-07-24'
+group by code
+

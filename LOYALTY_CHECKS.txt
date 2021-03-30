@@ -1,0 +1,10 @@
+/*
+get count and amount of sales on our Loyalty cards on specific date
+*/
+
+SELECT COUNT(LOYALTYNUM) AS COUNTED, SUM(AMOUNT), * FROM TILLHIST
+WHERE DATE > '2019-07-01'
+AND LOYALTYNUM <> ''
+AND SUBTYPE LIKE 'GV5'
+GROUP BY LOYALTYNUM
+ORDER BY COUNTED DESC

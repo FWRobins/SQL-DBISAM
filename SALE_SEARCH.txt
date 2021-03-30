@@ -1,0 +1,56 @@
+/*
+find a specific sale in all branches
+*/
+
+
+select '001' as branch,  amount, debtor, * from "C:\IQRetail\IQEnterprise\001\TillHist.dat"
+where salenum = 320942
+and subtype like 'TOTAL'
+
+union all
+
+select '002' as branch,  amount,  debtor, * from "C:\IQRetail\IQEnterprise\002\TillHist.dat"
+where salenum = 320942
+and subtype like 'TOTAL'
+
+union all
+
+select '003' as branch,  amount,  debtor, * from "C:\IQRetail\IQEnterprise\003\TillHist.dat"
+where salenum = 320942
+and subtype like 'TOTAL'
+
+union all
+
+select '004' as branch,  amount, debtor,  * from "C:\IQRetail\IQEnterprise\004\TillHist.dat"
+where salenum = 320942
+and subtype like 'TOTAL'
+
+union all
+
+select '005' as branch, amount,  debtor, * from "C:\IQRetail\IQEnterprise\005\TillHist.dat"
+where salenum = 320942
+and subtype like 'TOTAL'
+
+union all
+
+select '006' as branch, amount,   debtor, * from "C:\IQRetail\IQEnterprise\006\TillHist.dat"
+where salenum = 320942
+and subtype like 'TOTAL'
+
+union all
+
+select '007' as branch,  amount,  debtor, * from "C:\IQRetail\IQEnterprise\007\TillHist.dat"
+where salenum = 320942
+and subtype like 'TOTAL'
+
+union all
+
+select '009' as branch,  amount,  debtor, * from "C:\IQRetail\IQEnterprise\009\TillHist.dat"
+where salenum = 320942
+and subtype like 'TOTAL'
+
+union all
+
+select '010' as branch,  amount,  debtor, * from "C:\IQRetail\IQEnterprise\010\TillHist.dat"
+where salenum = 320942
+and subtype like 'TOTAL'
